@@ -3,9 +3,9 @@
 	"displayName": "Solar2D Autocomplete",
 	"description": "Autocomplete/Snippets for Solar2D Apis",
 	"publisher": "solar2D",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"icon": "Solar2D.png",
-	"repository":"https://github.com/solar2d/Solar2D-VSAutocomplete", 
+	"repository":"https://github.com/solar2d/Solar2D-VSAutocomplete",
 	"engines": {
 		"vscode": "^1.68.0"
 	},
