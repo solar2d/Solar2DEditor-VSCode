@@ -1,0 +1,30 @@
+{
+	"name": "solar2d-autocomplete",
+	"displayName": "Solar2D Autocomplete",
+	"description": "Autocomplete/Snippets for Solar2D Apis",
+	"publisher": "solar2D",
+	"version": "1.0.1",
+	"icon": "Solar2D.png",
+	"repository":"https://github.com/solar2d/Solar2D-VSAutocomplete", 
+	"engines": {
+		"vscode": "^1.68.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"keywords": [
+		"solar2d",
+		"solar2D",
+		"corona",
+		"coronaSDK",
+		"lua",
+		"docs",
+		"documentation"
+	],
+	"contributes": {
+		"snippets": [{
+			"language": "lua",
+			"path": "./snippets/snippets.code-snippets"
+		}]
+	}
+}
