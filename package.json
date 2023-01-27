@@ -3,7 +3,7 @@
 	"displayName": "Solar2D Autocomplete",
 	"description": "Autocomplete/Snippets for Solar2D Apis",
 	"publisher": "solar2D",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"icon": "Solar2D.png",
 	"repository":"https://github.com/solar2d/Solar2D-VSAutocomplete",
 	"engines": {
@@ -21,10 +21,27 @@
 		"docs",
 		"documentation"
 	],
+	"activationEvents": [],
+	"main": "./extension.js",
 	"contributes": {
 		"snippets": [{
 			"language": "lua",
 			"path": "./snippets/snippets.code-snippets"
-		}]
+		}],
+		"commands": [
+			{
+				"command": "extension.solar2D.launchProj",
+				"title": "Solar2D: Launch Project"
+			},
+			{
+				"command": "extension.solar2D.launchProjConsole",
+				"title": "Solar2D: Launch Project (With Console)"
+			},
+			{
+				"command": "extension.solar2D.searchDocs",
+				"title": "Solar2D: Search Docs"
+			}
+
+		]
 	}
 }
