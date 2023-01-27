@@ -50,6 +50,7 @@ function activate(context) {
 			if(os.type() === "Windows_NT"){
 				term.sendText(`"C:\Program Files\Corona Labs\Corona\Corona Simulator.exe" "`+workspaceFolder+`" /no-console /debug`)
 			}else if(os.type() === "Darwin"){ //Mac
+				workspaceFolder = workspaceFolder.replaceAll('\ ', '\\ ');
 				var simFolder = getMacSimulatorFolder();
 				if(simFolder == null){
 					vscode.window.showInformationMessage('Solar2D Sim not found');
@@ -79,6 +80,7 @@ function activate(context) {
 				term.sendText(`"C:\Program Files\Corona Labs\Corona\Corona Simulator.exe" "`+workspaceFolder+`" /debug`)
 			}else if(os.type() === "Darwin"){ //Mac
 				var simFolder = getMacSimulatorFolder();
+				workspaceFolder = workspaceFolder.replaceAll('\ ', '\\ ');
 				if(simFolder == null){
 					vscode.window.showInformationMessage('Solar2D Sim not found');
 				}else{

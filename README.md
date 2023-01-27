@@ -35,9 +35,9 @@ Based on Atom Autocomplete, may be missing a few newer apis
 
 ## Release Notes
 
-### 1.1.1
+### 1.1.1 (.2)
 
-Tweaked Launch Commands to find newest SolarSim Folder for Mac (Scott Harrison)
+Tweaked Launch Commands to find newest SolarSim Folder for Mac(fix spaces on files) (Scott Harrison)
 
 ### 1.1.0
 
