@@ -3,14 +3,15 @@
 	"displayName": "Solar2D Autocomplete",
 	"description": "Autocomplete/Snippets for Solar2D Apis",
 	"publisher": "solar2D",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"icon": "Solar2D.png",
 	"repository":"https://github.com/solar2d/Solar2D-VSAutocomplete",
 	"engines": {
 		"vscode": "^1.68.0"
 	},
 	"categories": [
-		"Snippets"
+		"Snippets",
+		"Debuggers"
 	],
 	"keywords": [
 		"solar2d",

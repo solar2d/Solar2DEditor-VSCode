@@ -2,11 +2,39 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const os = require('os');
+const { Console } = require('console');
 
 
 /**
  * @param {vscode.ExtensionContext} context
  */
+function getMacSimulatorFolder(){
+	var fs = require('fs');
+	var files = fs.readdirSync('/Applications/');
+	var currentVerison = 0;
+	files.some(file => {
+		fileString = file.toString();
+		
+		if(fileString === "Corona"){
+			currentVerison = "Corona";
+			return true;
+		}
+		if(fileString.includes("Corona")){
+			var verison = Number(fileString.split("-")[1]);
+			if(verison > currentVerison){
+				currentVerison = verison;
+			}
+		}
+	});
+	if(currentVerison != 0 && currentVerison != "Corona"){
+		return "Corona-"+currentVerison;
+	}else if(currentVerison === "Corona"){
+		return "Corona";
+	}
+	else{
+		return null;
+	}
+}
 function activate(context) {
 
 
@@ -22,12 +50,17 @@ function activate(context) {
 			if(os.type() === "Windows_NT"){
 				term.sendText(`"C:\Program Files\Corona Labs\Corona\Corona Simulator.exe" "`+workspaceFolder+`" /no-console /debug`)
 			}else if(os.type() === "Darwin"){ //Mac
-				term.sendText(`"/Applications/Corona/Corona Simulator.app/Contents/MacOS/Corona Simulator" `+workspaceFolder+" -no-console yes -debug yes")
+				var simFolder = getMacSimulatorFolder();
+				if(simFolder == null){
+					vscode.window.showInformationMessage('Solar2D Sim not found');
+				}else{
+					term.sendText(`"/Applications/`+simFolder+`/Corona Simulator.app/Contents/MacOS/Corona Simulator" `+workspaceFolder+" -no-console yes -debug yes")
+				}
 			}else{
 				vscode.window.showInformationMessage('Unknown OS');
 			}
 		}else{
-			vscode.window.showInformationMessage('Workspace not found');
+			vscode.window.showInformationMessage('Project not found');
 		}
 		
 		
@@ -45,7 +78,12 @@ function activate(context) {
 			if(os.type() === "Windows_NT"){
 				term.sendText(`"C:\Program Files\Corona Labs\Corona\Corona Simulator.exe" "`+workspaceFolder+`" /debug`)
 			}else if(os.type() === "Darwin"){ //Mac
-				term.sendText(`"/Applications/Corona/Corona Simulator.app/Contents/MacOS/Corona Simulator" `+workspaceFolder+" -debug yes")
+				var simFolder = getMacSimulatorFolder();
+				if(simFolder == null){
+					vscode.window.showInformationMessage('Solar2D Sim not found');
+				}else{
+					term.sendText(`"/Applications/`+simFolder+`/Corona Simulator.app/Contents/MacOS/Corona Simulator" `+workspaceFolder+" -debug yes")
+				}
 			}else{
 				vscode.window.showInformationMessage('Unknown OS');
 			}
