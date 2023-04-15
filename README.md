@@ -1,6 +1,6 @@
-# Solar2D Autocomplete
+# Solar2D Editor
 
-The [Solar2D* Autocomplete extension for VS Code](https://marketplace.visualstudio.com/items?itemName=solar2d.solar2d-autocomplete) Autocompletes hundreds of Solar2D Apis and allows you to easily launch and debug project
+The [Solar2D* Editor extension for VS Code](https://marketplace.visualstudio.com/items?itemName=solar2d.solar2d-autocomplete) Autocompletes hundreds of Solar2D Apis and allows you to easily launch and debug project
 
 
 *(Formerly Corona SDK)
@@ -28,12 +28,16 @@ Launch current workspace project in Solar2D, display debugger in terminal and sh
 
 Searches for highlighted text in Docs
 
+## Snippets Shortcuts
 
-## Known Issues
+"composerTemplate": [Creates Scene Composer Template](https://docs.coronalabs.com/api/library/composer/index.html#template)
 
-Based on Atom Autocomplete, may be missing a few newer apis
 
 ## Release Notes
+
+### 1.2.2
+
+Rebranding Solar2D Editor, Added Composer Template and Syntax Highlighting for Basic build.settings
 
 ### 1.1.3(.4-.5)
 

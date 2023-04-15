@@ -1,11 +1,11 @@
 {
 	"name": "solar2d-autocomplete",
-	"displayName": "Solar2D Autocomplete",
-	"description": "Autocomplete/Snippets for Solar2D Apis",
+	"displayName": "Solar2D Editor",
+	"description": "Solar2D Editor with Autocomplete/Snippets for Visual Studio Code",
 	"publisher": "solar2D",
-	"version": "1.1.5",
+	"version": "1.2.2",
 	"icon": "Solar2D.png",
-	"repository":"https://github.com/solar2d/Solar2D-VSAutocomplete",
+	"repository":"https://github.com/solar2d/Solar2DEditor-VSCode",
 	"engines": {
 		"vscode": "^1.68.0"
 	},
@@ -43,6 +43,74 @@
 				"title": "Solar2D: Search Docs"
 			}
 
+		],
+		"languages": [
+		{
+			"id": "solar2DProjectSettings",
+			"extensions": [".settings"],
+			"icon": {
+				"light": "./icons/settingsLight.png",
+				"dark": "./icons/settingsDark.png"
+			  }
+		}
+		],
+		"grammars": [
+		{
+			"language": "solar2DProjectSettings",
+			"scopeName": "source.settings",
+			"path": "./syntaxes/solar2DSettings.tmGrammar.json"
+		}
+		],
+		
+		"debuggers": [
+			{
+			  "type": "solar2DEditor",
+			  "label": "Launch Solar2D Simulator",
+	  
+			  "configurationAttributes": {
+				"launch": {
+				  "properties": {
+					"program": {
+					  "type": "string",
+					  "description": "Absolute path to a text file.",
+					  "default": "${workspaceFolder}/${command:Launch}"
+					},
+					"stopOnEntry": {
+					  "type": "boolean",
+					  "description": "Automatically stop after launch.",
+					  "default": true
+					}
+				  }
+				}
+			  },
+	  
+			  "initialConfigurations": [
+				{
+				  "type": "mock",
+				  "request": "launch",
+				  "name": "Ask for file name",
+				  "program": "${workspaceFolder}/${command:Launch}",
+				  "stopOnEntry": true
+				}
+			  ],
+	  
+			  "configurationSnippets": [
+				{
+				  "label": "Solar2D: Launch",
+				  "description": "A new configuration for launching a Solar2D Simulator",
+				  "body": {
+					"type": "mock",
+					"request": "launch",
+					"name": "${2:Launch Program}",
+					"program": "^\"\\${workspaceFolder}/${1:Program}\""
+				  }
+				}
+			  ],
+	  
+			  "variables": {
+				"Launch": "extension.solar2D.launchProj"
+			  }
+			}
 		]
 	}
 }
