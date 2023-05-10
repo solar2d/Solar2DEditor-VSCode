@@ -58,7 +58,7 @@ function activate(context) {
 			if(os.type() === "Windows_NT"){
 				workspaceFolder = workspaceFolder.replaceAll('/', '\\');
 				workspaceFolder = workspaceFolder.replaceAll('\\c:', 'C:');
-				term.sendText(`cmd /c "`+getWindowsFolder()+`\\Corona Simulator.exe" -debug -no-console "`+workspaceFolder+`\\main.lua"  *>&1 | Out-Default`);
+				term.sendText(`cmd /c '"`+getWindowsFolder()+`\\Corona Simulator.exe" -debug -no-console "`+workspaceFolder+`\\main.lua"'  *>&1 | Out-Default`);
 			}else if(os.type() === "Darwin"){ //Mac
 				workspaceFolder = workspaceFolder.replaceAll('\ ', '\\ ');
 				var simFolder = getMacSimulatorFolder();
